@@ -1,4 +1,4 @@
-package catalog;
+package catalog.entities;
 
 public class Absence
 {

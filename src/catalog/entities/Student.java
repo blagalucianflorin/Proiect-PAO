@@ -1,4 +1,9 @@
-package catalog;
+package catalog.entities;
+
+import catalog.entities.Absence;
+import catalog.entities.Grade;
+import catalog.entities.Group;
+import catalog.entities.Parent;
 
 import java.util.Vector;
 
@@ -6,10 +11,10 @@ public class Student
 {
     private final String           name;
     private int                    age;
-    private final Vector <Parent>  parents  = new Vector <Parent>();
-    private final Vector <Absence> absences = new Vector <Absence>();
-    private final Vector <Grade>   grades   = new Vector <Grade>();
-    private Group                  group    = null;
+    private final Vector <Parent>  parents  = new Vector <>();
+    private final Vector <Absence> absences = new Vector <>();
+    private final Vector <Grade>   grades   = new Vector <>();
+    private Group group    = null;
 
     public Student (String newName, int newAge)
     {

@@ -1,14 +1,15 @@
 package com.application;
 
-import catalog.Menu;
-import catalog.Service;
+import catalog.services.Menu;
+import catalog.services.CatalogService;
 
-public class Main
-{
-    public static void main(String[] args) throws Exception
-    {
-        Service myCatalogService = new Service ();
+public class Main {
 
-        // Call service functions
+    public static void main(String[] args) throws Exception {
+        CatalogService myCatalogCatalogService = new CatalogService();
+        Menu    myMenu                         = new Menu (myCatalogCatalogService);
+
+        myMenu.console ();
     }
+
 }

@@ -1,8 +1,8 @@
-package catalog;
+package catalog.entities;
 
-import catalog.courses.Course;
+import catalog.entities.courses.Course;
 
-public class Grade implements Comparable <Grade>
+public class Grade
 {
     private final float  value;
     private final Course course;
@@ -16,10 +16,4 @@ public class Grade implements Comparable <Grade>
     public float getValue () { return (this.value); }
 
     public Course getCourse () { return (this.course); }
-
-    @Override
-    public int compareTo(Grade otherGrade)
-    {
-        return Float.compare (this.value, otherGrade.getValue ());
-    }
 }

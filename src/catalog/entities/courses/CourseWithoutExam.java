@@ -1,7 +1,7 @@
-package catalog.courses;
+package catalog.entities.courses;
 
-import catalog.Grade;
-import catalog.Teacher;
+import catalog.entities.Grade;
+import catalog.entities.Teacher;
 
 import java.util.Vector;
 

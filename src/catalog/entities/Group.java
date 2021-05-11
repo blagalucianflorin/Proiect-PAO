@@ -1,13 +1,13 @@
-package catalog;
+package catalog.entities;
 
-import catalog.courses.Course;
+import catalog.entities.courses.Course;
 import java.util.Vector;
 
 public class Group
 {
     private final String           name;
-    private final Vector <Student> students = new Vector <Student>();
-    private final Vector <Course>  courses  = new Vector <Course>();
+    private final Vector <Student> students = new Vector <>();
+    private final Vector <Course>  courses  = new Vector <>();
 
     public Group (String newName)
     {
