@@ -2,13 +2,19 @@ package catalog.services;
 
 import catalog.entities.*;
 import catalog.entities.courses.Course;
+<<<<<<< HEAD
 import catalog.services.DB.DBManager;
 import catalog.services.DB.DBService;
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+<<<<<<< HEAD
 import java.sql.SQLException;
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 import java.util.Collections;
 import java.util.Hashtable;
 import java.util.Vector;
@@ -16,6 +22,7 @@ import java.util.Vector;
 public class Menu
 {
     private final CatalogService catalogService;
+<<<<<<< HEAD
     private String               dataSource     = "CSV";
 
 
@@ -24,6 +31,17 @@ public class Menu
     }
 
     public static Vector <String> getArgs (String command) {
+=======
+
+
+    public Menu (CatalogService newCatalogCatalogService)
+    {
+        this.catalogService = newCatalogCatalogService;
+    }
+
+    public static Vector <String> getArgs (String command)
+    {
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
         Vector <String> retArgs     = new Vector<>();
         StringBuilder stringBuilder = new StringBuilder();
         boolean inQuote = false;
@@ -70,12 +88,15 @@ public class Menu
     {
         BufferedReader reader  = new BufferedReader( new InputStreamReader(System.in));
         String         command = "";
+<<<<<<< HEAD
         String dataSource      = SettingsManager.getInstance ().get ("DATASOURCE");
 
         if (!dataSource.equals ("") && dataSource.equals ("DB"))
             this.dataSource = "DB";
         else
             this.dataSource = "CSV";
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
         System.out.println ("Opening console...");
         commandLoadData (".csvs");
@@ -95,8 +116,11 @@ public class Menu
             System.out.print (">>> ");
         }
         Historian.getInstance ().close ();
+<<<<<<< HEAD
         SettingsManager.getInstance ().set ("DATASOURCE", this.dataSource);
         SettingsManager.getInstance ().close ();
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
     }
 
     private void addCommandToHistory (String command) throws IOException {
@@ -117,15 +141,20 @@ public class Menu
                 break;
 
             case "exit":
+<<<<<<< HEAD
                 if (this.dataSource.equals ("CSV"))
                     System.out.println ("Saving data to '.csvs/'...");
                 else
                     System.out.println ("Saving data to DB...");
 
+=======
+                System.out.println ("Saving data to '.csvs/'...");
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
                 commandSaveData (".csvs");
                 System.out.println ("Exiting...");
                 break;
 
+<<<<<<< HEAD
             case "showDataSource":
                 this.checkArgsLen(args, 1, true);
                 commandShowDataSource ();
@@ -144,6 +173,18 @@ public class Menu
                 } else if (args.size () == 1) {
                     if (this.dataSource.equals ("CSV"))
                         System.out.println ("Saving data to '.csvs/'...");
+=======
+            case "saveData":
+                if (args.size () == 2) {
+                    if (args.get(1).equals(".csvs")) {
+                        System.out.println("Can't use that folder to save data.");
+                        break;
+                    }
+                    System.out.println ("Saving data to '" + args.get (1) + "/'...");
+                    commandSaveData (args.get (1));
+                } else if (args.size () == 1) {
+                    System.out.println ("Saving data to '.csvs/'...");
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
                     commandSaveData (".csvs");
                 } else
                     this.checkArgsLen(args, 2, true);
@@ -151,6 +192,7 @@ public class Menu
                 
             case "loadData":
                 if (args.size () == 2) {
+<<<<<<< HEAD
                     if (this.dataSource.equals ("CSV"))
                         System.out.println ("Loading data from '" + args.get (1) + "'.");
                     commandLoadData(args.get(1));
@@ -158,6 +200,13 @@ public class Menu
                 else if (args.size () == 1) {
                     if (this.dataSource.equals ("CSV"))
                         System.out.println ("Loading data from '.csvs/'...");
+=======
+                    System.out.println ("Loading data from '" + args.get (1) + "'.");
+                    commandLoadData(args.get(1));
+                }
+                else if (args.size () == 1) {
+                    System.out.println ("Loading data from '.csvs/'...");
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
                     commandLoadData(".csvs");
                 }
                 else
@@ -259,6 +308,7 @@ public class Menu
                 this.commandAddStudentToGroup(args.get(1), args.get(2));
                 break;
 
+<<<<<<< HEAD
             case "chooseDataSource":
                 this.checkArgsLen(args, 2, true);
                 this.commandChooseDataSource (args.get(1));
@@ -274,6 +324,8 @@ public class Menu
                 this.commandCalculateAllMarks (args.get (1));
                 break;
 
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
             default:
                 throw new Exception ("Unknown command. Try using 'help'.");
         }
@@ -288,6 +340,7 @@ public class Menu
                 "'help'",
                 "'clear'",
                 "'exit'",
+<<<<<<< HEAD
                 "'showDataSource'",
                 "'chooseDataSource <\"CSV\"/\"DB\">'",
                 "'saveData [folderName]'",
@@ -295,6 +348,11 @@ public class Menu
                 "'clearData'",
                 "'calculatePartialMark'",
                 "'calculateAllMarks'",
+=======
+                "'saveData [folderName]'",
+                "'loadData [folderName]'",
+                "'clearData'",
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
                 "'history'",
                 "'clearHistory'",
                 "'showTeachers'",
@@ -321,11 +379,17 @@ public class Menu
                  Display this help message.
                 All arguments can be enclosed by "". Ex.: 'command "argument with spaces"'.""");
 
+<<<<<<< HEAD
         advancedHelp.put ("showDataSource", "'showDataSource'\nDisplays the current data source.");
 
         advancedHelp.put("clear", "'clear'\n" +"Clear the console.");
 
         advancedHelp.put("exit", "'exit'\n" + "Exits the program. Current contents are saved to /.csvs/{files}.csv or DB");
+=======
+        advancedHelp.put("clear", "'clear'\n" +"Clear the console.");
+
+        advancedHelp.put("exit", "'exit'\n" + "Exits the program. Current contents are saved to /.csvs/{files}.csv");
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
         advancedHelp.put("saveData", "'saveData [folderName]'\n" + "Saves the whole " +
                 "data to .csv files in folder 'folderName'." + "Don't provide the 'folderName' argument if you want" +
@@ -336,12 +400,15 @@ public class Menu
                 Loads the whole data from the .csv files in 'folderName'.
                 Don't provide the 'folderName' argument if you want to load data from the default folder.""");
 
+<<<<<<< HEAD
         advancedHelp.put ("calculatePartialMark", "'calculatePartialMark <studentName> <courseName>'" +
                 "Displays mark at certain course of a student.");
 
         advancedHelp.put ("calculateAllMarks", "'calculateAllMarks <studentName>'" +
                 "Displays total mark for all courses of a student");
 
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
         advancedHelp.put ("history", "history: 'history'\nPrints the command history.");
 
         advancedHelp.put ("clearHistory", "clearHistory: 'clearHistory'\nClears the command history.");
@@ -388,12 +455,15 @@ public class Menu
 
         advancedHelp.put("clearData", "'clearData'\n" + "Deletes all the data currently stored in the program.");
 
+<<<<<<< HEAD
         advancedHelp.put("chooseDataSource", """
                 'chooseDataSource <"CSV"/"DB">'
                 Changes the datasource of the program.
                 CSV is selected by default when starting the program. Alters the bahaviour of 'loadData' and 'saveData'.
                 Also changes where data will be saved when exiting the program.""");
 
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
         if (args.size() == 1) {
             for (String command : simpleHelp)
@@ -409,6 +479,7 @@ public class Menu
         }
     }
 
+<<<<<<< HEAD
 
     private void commandChooseDataSource (String newDataSource) throws IOException {
         if (newDataSource.equals ("CSV")) {
@@ -474,6 +545,33 @@ public class Menu
             this.catalogService.loadCoursesAssignments (DBManager.getInstance ().loadTable ("courseAssignments"));
             this.catalogService.loadGrades (DBManager.getInstance ().loadTable ("grades"));
         }
+=======
+    
+    private void commandSaveData (String folderName) {
+        CSVManager.getInstance ().saveCSV (this.catalogService.saveTeachers (), folderName + "/teachers.csv");
+        CSVManager.getInstance ().saveCSV (this.catalogService.saveStudents (), folderName + "/students.csv");
+        CSVManager.getInstance ().saveCSV (this.catalogService.saveAbsences (), folderName + "/absences.csv");
+        CSVManager.getInstance ().saveCSV (this.catalogService.saveParents (), folderName + "/parents.csv");
+        CSVManager.getInstance ().saveCSV (this.catalogService.saveGroups (), folderName + "/groups.csv");
+        CSVManager.getInstance ().saveCSV (this.catalogService.saveCourses (), folderName + "/courses.csv");
+        CSVManager.getInstance ().saveCSV (this.catalogService.saveCoursesAssignments (), folderName +
+                "/courseAssignments.csv");
+        CSVManager.getInstance ().saveCSV (this.catalogService.saveGrades (), folderName + "/grades.csv");
+    }
+    
+    private void commandLoadData (String folderName) throws Exception {
+        this.catalogService.clearData ();
+
+        this.catalogService.loadTeachers (CSVManager.getInstance ().loadCSV (folderName + "/teachers.csv"));
+        this.catalogService.loadGroups (CSVManager.getInstance ().loadCSV (folderName + "/groups.csv"));
+        this.catalogService.loadStudents (CSVManager.getInstance ().loadCSV (folderName + "/students.csv"));
+        this.catalogService.loadAbsences (CSVManager.getInstance ().loadCSV (folderName + "/absences.csv"));
+        this.catalogService.loadParents (CSVManager.getInstance ().loadCSV (folderName + "/parents.csv"));
+        this.catalogService.loadCourses (CSVManager.getInstance ().loadCSV (folderName + "/courses.csv"));
+        this.catalogService.loadCoursesAssignments (CSVManager.getInstance ().loadCSV (folderName +
+                "/courseAssignments.csv"));
+        this.catalogService.loadGrades (CSVManager.getInstance ().loadCSV (folderName + "/grades.csv"));
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
     }
     
 
@@ -497,6 +595,10 @@ public class Menu
 
     private void commandHistory () throws IOException {
         for (Vector <String> line : Historian.getInstance ().getHistory ()) {
+<<<<<<< HEAD
+=======
+//            System.out.println ("'" + line.get (0) + "'\t-\t" + line.get (1));
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
             System.out.println (line.get (1) + "\t-\t'" + line.get (0) + "'");
         }
     }
@@ -585,10 +687,15 @@ public class Menu
         this.catalogService.addAbsence (studentName, absenceDate);
     }
 
+<<<<<<< HEAD
     private void commandMotivateAbsence (String studentName, String absenceDate) throws SQLException {
         if (this.dataSource.equals("DB"))
             DBService.getInstance ().update ("absences", new String[] {"motivated"}, new String[] {"yes"},
                     "student='" + studentName + "' AND date='" + absenceDate + "'");
+=======
+    private void commandMotivateAbsence (String studentName, String absenceDate)
+    {
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
         this.catalogService.motivateAbsence (studentName, absenceDate);
     }
 
@@ -598,6 +705,7 @@ public class Menu
         this.catalogService.addGroup (newName);
     }
 
+<<<<<<< HEAD
     private void commandRemoveGroup (String groupName) throws SQLException {
         if (this.dataSource.equals ("DB")) {
             DBService.getInstance().delete ("groups", "name='" + groupName + "'");
@@ -605,6 +713,10 @@ public class Menu
                     "`group`='" + groupName + "'");
         }
 
+=======
+    private void commandRemoveGroup (String groupName)
+    {
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
         this.catalogService.removeGroup (groupName);
     }
 
@@ -651,7 +763,11 @@ public class Menu
 
     private void commandAddCourseToGroup (String courseName, String groupName) throws Exception
     {
+<<<<<<< HEAD
         this.catalogService.addCourseToGroup (courseName, groupName);
+=======
+        this.catalogService.addCourseToGroup (groupName, courseName);
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
     }
 
 
@@ -665,6 +781,7 @@ public class Menu
         for (int i = 0; i < 50; i++)
             System.out.println();
     }
+<<<<<<< HEAD
 
     private void commandCalculatePartialMark (String studentName, String course) throws Exception {
         try {
@@ -683,4 +800,6 @@ public class Menu
             throw e;
         }
     }
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 }

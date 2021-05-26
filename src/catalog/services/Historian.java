@@ -14,6 +14,7 @@ public class Historian {
     private FileWriter historianWriter;
 
     private Historian () throws IOException {
+<<<<<<< HEAD
         File historyFile     = new File("history.csv");
         boolean fileExists   = historyFile.exists ();
         this.historianWriter = new FileWriter("history.csv", true);
@@ -21,6 +22,9 @@ public class Historian {
         if (!fileExists) {
             this.historianWriter.write ("timestamp,command\n");
         }
+=======
+        this.historianWriter = new FileWriter("history.csv", true);
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
     }
 
     private static Historian instance = null;
@@ -51,7 +55,10 @@ public class Historian {
 
         File historyFile      = new File("history.csv");
         Scanner historyReader = new Scanner(historyFile);
+<<<<<<< HEAD
         historyReader.nextLine (); // skip header
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
         while (historyReader.hasNextLine ())
         {

@@ -4,9 +4,13 @@ import catalog.entities.courses.Course;
 import catalog.entities.courses.CourseWithExam;
 import catalog.entities.courses.CourseWithoutExam;
 import catalog.entities.*;
+<<<<<<< HEAD
 import catalog.services.DB.DBService;
 
 import java.sql.SQLException;
+=======
+
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 import java.util.Vector;
 
 public class CatalogService
@@ -19,12 +23,15 @@ public class CatalogService
     public Vector <Vector <String>>  saveStudents ()
     {
         Vector <Vector <String>> retValues = new Vector <> ();
+<<<<<<< HEAD
         Vector <String> headerLine         = new Vector <> ();
 
         headerLine.add ("name");
         headerLine.add ("age");
         headerLine.add ("group");
         retValues.add (headerLine);
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
         for (Student student : this.students)
         {
@@ -41,9 +48,12 @@ public class CatalogService
     }
 
     public void loadStudents (Vector <Vector <String>> students) throws Exception {
+<<<<<<< HEAD
         if (students.size () == 0)
             return;
         students.remove (0); // Skip header line
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
         for (Vector <String> line : students)
         {
             this.addStudent (line.get (0), Integer.parseInt (line.get (1)));
@@ -57,10 +67,13 @@ public class CatalogService
     public Vector <Vector <String>> saveGroups ()
     {
         Vector <Vector <String>> retValues = new Vector<>();
+<<<<<<< HEAD
         Vector <String> headerLine         = new Vector <> ();
 
         headerLine.add ("name");
         retValues.add (headerLine);
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
         for (Group group : this.groups)
         {
@@ -76,9 +89,12 @@ public class CatalogService
 
     public void loadGroups (Vector <Vector <String>> groups)
     {
+<<<<<<< HEAD
         if (groups.size () == 0)
             return;
         groups.remove (0); // Skip header line
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
         for (Vector <String> line : groups)
         {
             this.addGroup (line.get (0));
@@ -89,12 +105,15 @@ public class CatalogService
     public Vector <Vector <String>> saveCourses ()
     {
         Vector <Vector <String>> retValues = new Vector<>();
+<<<<<<< HEAD
         Vector <String> headerLine         = new Vector <> ();
 
         headerLine.add ("name");
         headerLine.add ("teacher");
         headerLine.add ("withExam");
         retValues.add (headerLine);
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
         for (Course course : this.courses)
         {
@@ -112,9 +131,12 @@ public class CatalogService
 
     public void loadCourses (Vector <Vector <String>> courses) throws Exception
     {
+<<<<<<< HEAD
         if (courses.size () == 0)
             return;
         courses.remove (0); // Skip header line
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
         for (Vector <String> line : courses)
             this.addCourse (line.get (0), line.get (1), line.get(2).equals ("yes"));
     }
@@ -123,11 +145,14 @@ public class CatalogService
     public Vector <Vector <String>> saveCoursesAssignments ()
     {
         Vector <Vector <String>> retValues = new Vector<>();
+<<<<<<< HEAD
         Vector <String> headerLine         = new Vector <> ();
 
         headerLine.add ("courseName");
         headerLine.add ("groupName");
         retValues.add (headerLine);
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
         for (Group group : this.groups)
         {
@@ -144,12 +169,18 @@ public class CatalogService
         return (retValues);
     }
 
+<<<<<<< HEAD
     public void loadCoursesAssignments (Vector <Vector <String>> coursesAssignements) throws Exception
     {
         if (coursesAssignements.size () == 0)
             return;
         coursesAssignements.remove (0); // Skip header line
         for (Vector <String> line : coursesAssignements)
+=======
+    public void loadCoursesAssignments (Vector <Vector <String>> courses) throws Exception
+    {
+        for (Vector <String> line : courses)
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
             this.addCourseToGroup (line.get (0), line.get (1));
     }
 
@@ -158,12 +189,15 @@ public class CatalogService
     public Vector <Vector <String>> saveGrades ()
     {
         Vector <Vector <String>> retValues = new Vector <> ();
+<<<<<<< HEAD
         Vector <String> headerLine         = new Vector <> ();
 
         headerLine.add ("student");
         headerLine.add ("course");
         headerLine.add ("value");
         retValues.add (headerLine);
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
         for (Student student : this.students)
         {
@@ -181,12 +215,18 @@ public class CatalogService
         return (retValues);
     }
 
+<<<<<<< HEAD
     public void loadGrades (Vector <Vector <String>> grades) throws Exception
     {
         if (grades.size () == 0)
             return;
         grades.remove (0); // Skip header line
         for (Vector <String> line : grades)
+=======
+    public void loadGrades (Vector <Vector <String>> courses) throws Exception
+    {
+        for (Vector <String> line : courses)
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
             this.addGrade (line.get (0), line.get (1), Float.parseFloat(line.get (2)));
     }
 
@@ -195,10 +235,13 @@ public class CatalogService
     public Vector <Vector <String>> saveTeachers ()
     {
         Vector <Vector <String>> retValues = new Vector <> ();
+<<<<<<< HEAD
         Vector <String> headerLine         = new Vector <> ();
 
         headerLine.add ("name");
         retValues.add (headerLine);
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
         for (Teacher teacher : this.teachers)
         {
@@ -214,9 +257,12 @@ public class CatalogService
 
     public void loadTeachers (Vector <Vector <String>> teachers)
     {
+<<<<<<< HEAD
         if (teachers.size () == 0)
             return;
         teachers.remove (0); // Skip header line
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
         for (Vector <String> line : teachers)
         {
             this.addTeacher (line.get (0));
@@ -227,12 +273,15 @@ public class CatalogService
     public Vector <Vector <String>> saveAbsences ()
     {
         Vector <Vector <String>> retValues = new Vector <> ();
+<<<<<<< HEAD
         Vector <String> headerLine         = new Vector <> ();
 
         headerLine.add ("student");
         headerLine.add ("date");
         headerLine.add ("motivated");
         retValues.add (headerLine);
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
         for (Student student : this.students)
         {
@@ -253,9 +302,12 @@ public class CatalogService
 
     public void loadAbsences (Vector <Vector <String>> absences)
     {
+<<<<<<< HEAD
         if (absences.size () == 0)
             return;
         absences.remove (0); // Skip header line
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
         for (Vector <String> line : absences) {
             for (Student student : this.students)
                 if (student.getName ().equals (line.get (0))) {
@@ -270,12 +322,15 @@ public class CatalogService
     public Vector <Vector <String>> saveParents ()
     {
         Vector <Vector <String>> retValues = new Vector <> ();
+<<<<<<< HEAD
         Vector <String> headerLine         = new Vector <> ();
 
         headerLine.add ("student");
         headerLine.add ("name");
         headerLine.add ("phone");
         retValues.add (headerLine);
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
         for (Student student : this.students)
         {
@@ -296,9 +351,12 @@ public class CatalogService
 
     public void loadParents (Vector <Vector <String>> parents)
     {
+<<<<<<< HEAD
         if (parents.size () == 0)
             return;
         parents.remove (0); // Skip header line
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
         for (Vector <String> line : parents) {
             for (Student student : this.students) {
                 if (student.getName().equals(line.get(0))) {
@@ -400,7 +458,12 @@ public class CatalogService
 
     public void           addGroup (String newName) { this.groups.add (new Group (newName)); }
 
+<<<<<<< HEAD
     public void           removeGroup (String groupName) {
+=======
+    public void           removeGroup (String groupName)
+    {
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
         for (Group group : this.groups)
             if (group.getName ().equals (groupName))
             {
@@ -523,7 +586,11 @@ public class CatalogService
             }
 
         if (auxCourse == null)
+<<<<<<< HEAD
             throw new Exception ("Course doesn't exist");
+=======
+            throw new Exception ("Nu există cursul");
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
         mark = auxCourse.calcFinalGrade (grades);
 
@@ -534,14 +601,20 @@ public class CatalogService
     {
         float           mark    = 0;
         Vector <Course> courses;
+<<<<<<< HEAD
         int courses_count       = 1;
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
 
         for (Student student : this.students)
             if (student.getName ().equals (studentName))
             {
                 courses = student.getGroup ().getCourses ();
+<<<<<<< HEAD
                 courses_count = courses.size ();
+=======
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
 
                 for (Course course : courses)
                 {
@@ -550,7 +623,11 @@ public class CatalogService
                         mark += this.calcPartialMark (studentName, course.getName ());
                     } catch (Exception e)
                     {
+<<<<<<< HEAD
                         throw new Exception ("Can't calculate mark for " + studentName + " at course "
+=======
+                        throw new Exception ("Nu se poate calcula media elevului " + studentName + " la materia "
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
                                 + course.getName ());
                     }
                 }
@@ -558,6 +635,12 @@ public class CatalogService
                 break;
             }
 
+<<<<<<< HEAD
         return (mark / courses_count);
     }
 }
+=======
+        return (mark);
+    }
+}
+>>>>>>> b143c6e0b11dbe7da7c2cccf88afba388988f0cf
