@@ -15,16 +15,43 @@ public class Menu
 
     public static Vector <String> getArgs (String command)
     {
-        Vector <String> retArgs = new Vector <String>();
+        Vector <String> retArgs   = new Vector <String>();
         String[]        auxArgs;
+        int             firstQ    = -1;
+        int             lastSpace = -1;
+        System.out.println (command);
 
-        command = command.trim ();
-        command = command.replaceAll ("\n", "");
-        auxArgs = command.split ("\\s+");
-        Collections.addAll(retArgs, auxArgs);
 
-        for (int i = 0; i < retArgs.size (); i++)
-            retArgs.set (i, retArgs.get (i).replaceAll ("^\"|\"$", ""));
+//        command = command.trim ();
+//        command = command.replaceAll ("\n", "");
+
+        for (int i = 0; i < command.length (); i++)
+        {
+            if (command.charAt (i) == ' ' && firstQ == -1)
+            {
+                retArgs.add (command.substring (lastSpace + 1, i - 1));
+                lastSpace = i;
+            }
+            else if (command.charAt (i) == '\"' || command.charAt (i) == '\'')
+            {
+                System.out.println ("\"gasit\"");
+                if (firstQ == -1)
+                {
+                    firstQ = i;
+                }
+                else
+                {
+                    retArgs.add (command.substring (firstQ + 1, i - 1));
+                    firstQ  = -1;
+                }
+            }
+        }
+
+//        auxArgs = command.split ("\\s+");
+//        Collections.addAll(retArgs, auxArgs);
+
+//        for (int i = 0; i < retArgs.size (); i++)
+//            retArgs.set (i, retArgs.get (i).replaceAll ("^\"|\"$", ""));
 
         return (retArgs);
     }
